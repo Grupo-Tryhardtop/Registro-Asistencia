@@ -42,7 +42,7 @@ document.addEventListener(
     document.addEventListener(
       'bouncerFormValid', 
       () => {
-        var url = 'https://codepen.io/lucasn1974/pen/yQrZma'
+        var url = ''
 
         fetch('registro', {
           method: 'POST',
@@ -51,8 +51,10 @@ document.addEventListener(
           },
           body: JSON.stringify({
             nombre: document.getElementById('nombre').value,
+            apellido: document.getElementById('apellido').value,
+            Telefono: document.getElementById('telefono').value,
             email: document.getElementById('email').value,
-            contraseña: sha3_512(sha3_512(document.getElementById('contraseña').value) + url)
+            
           })
         })
       }, 
