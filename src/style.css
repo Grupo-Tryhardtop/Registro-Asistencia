@@ -1,0 +1,8 @@
+.error {
+	border-color: #d50000;
+}
+.error-message {
+	color: #d50000;
+	font-style: italic;
+	margin-bottom: 1.1em;
+}
