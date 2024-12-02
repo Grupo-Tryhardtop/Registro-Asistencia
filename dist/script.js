@@ -62,3 +62,136 @@ document.addEventListener(
     );
   }
 )
+
+//aqui inicia la logica de los select
+
+
+const estadoSelect = document.getElementById('estado');
+
+const municipioSelect = document.getElementById('municipio');
+
+const parroquiaSelect = document.getElementById('parroquia');
+
+
+//my snippet
+
+function populateSelect(selectElement, options, textKey, valueKey) {
+
+    selectElement.innerHTML = '<option value="">Seleccione una opción</option>'; // Limpiamos el select y agregamos la opción predeterminada
+
+    options.forEach(option => {
+
+        const opt = document.createElement('option');
+
+        opt.value = option[valueKey];
+
+        opt.textContent = option[textKey];
+
+        selectElement.appendChild(opt);
+
+    });
+
+}
+
+
+// Obtener estados
+
+async function fetchEstados() {
+
+    try {
+
+        const response = await fetch("https://unem.edu.ve/unem/index.php?method=GET&action=obtener_estados");
+
+        const estados = await response.json();
+
+        populateSelect(estadoSelect, estados, 'nombre', 'id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener estados:", error);
+
+    }
+
+}
+
+
+// Obtener municipios
+
+async function fetchMunicipios(estadoId) {
+
+    try {
+
+        const response = await fetch(`https://unem.edu.ve/unem/index.php?method=GET&action=obtener_municipios&estado_me_id=${estadoId}`);
+
+        const municipios = await response.json();
+
+        populateSelect(municipioSelect, municipios, 'nombre', 'id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener municipios:", error);
+
+    }
+
+}
+
+
+// Obtener parroquias
+
+async function fetchParroquias(municipioId) {
+
+    try {
+
+        const response = await fetch(`https://unem.edu.ve/unem/index.php?method=GET&action=obtener_parroquias&municipio_me_id=${municipioId}`);
+
+        const parroquias = await response.json();
+
+        populateSelect(parroquiaSelect, parroquias, 'nombre', 'parroquia_me_id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener parroquias:", error);
+
+    }
+
+}
+
+
+// Eventos para los cambios en los selectores
+
+estadoSelect.addEventListener('change', async () => {
+
+    const estadoId = estadoSelect.value;
+
+    municipioSelect.innerHTML = ''; // Limpiamos municipios y parroquias
+
+    parroquiaSelect.innerHTML = '';
+
+    if (estadoId) {
+
+        await fetchMunicipios(estadoId); // Cargamos municipios correspondientes
+
+    }
+
+});
+
+
+municipioSelect.addEventListener('change', async () => {
+
+    const municipioId = municipioSelect.value;
+
+    parroquiaSelect.innerHTML = ''; // Limpiamos parroquias
+
+    if (municipioId) {
+
+        await fetchParroquias(municipioId); // Cargamos parroquias correspondientes
+
+    }
+
+});
+
+
+// Cargamos los estados al iniciar
+
+fetchEstados();
+
