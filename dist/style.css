@@ -7,7 +7,6 @@
 	margin-bottom: 1.1em;
 }
 
-
 .mdl-card__supporting-text{
 	font-weight: 600 ;
 	display: grid;
@@ -20,7 +19,6 @@
 	margin-left: -30rem;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
-
 
 .mdl-card__title.mdl-card--border {
   border-bottom: 1px solid rgba(0,0,0,.1);
@@ -41,34 +39,26 @@
 	display: grid !important;
 	justify-content: center;
 	margin-right: -46rem;
-  }
-
-@media (min-width: 840px) {
-	.mdl-grid {
-	  padding: 8px;
-	  margin-top: 10rem;
-	}
 }
 
 .membrete-footer{
-  position: fixed;
-  bottom: -17px;
-  left: 0;
-  width: 128rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  height: 112px;
+	position: fixed;
+	bottom: -17px;
+	left: 0;
+	width: 114rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	height: 100px;
 }
-
-
 
 .cintillo-header{
 	background-size: cover; /* Ajusta la imagen para cubrir todo el header */
 	background-position: center; /* Centra la imagen */
-	height: 100px; /* Altura del header */
+	height: 86px; /* Altura del header */
 	display: flex;
 	align-items: center; /* Centra verticalmente el contenido del header */
 	justify-content: center; /* Centra horizontalmente el contenido del header */
@@ -76,5 +66,17 @@
 	text-align: center;
 	position: fixed;
 	width: 100%;
+}
 
+@media (min-width: 840px) {
+	.mdl-grid {
+	  padding: 8px;
+	  margin-top: 6.2rem;
+	}
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 10px; /* Reduce el espaciado en pantallas pequeñas */
+    }
 }
