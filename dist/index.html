@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<title>Formulario de Registro</title>
@@ -20,11 +20,9 @@
 	</head>
 	<body>
 
-		
-		<!-- partial:index.partial.html -->
 		<div class="mdl-layout mdl-js-layout">
 			<header>
-				<img class="cintillo-header" src="../src/img/cintillo-2.png" alt="">
+				<img class="cintillo-header" src="../src/img/cintillo-2.png" alt>
 			</header>
 			<main class="mdl-layout__content">
 				<div class="mdl-grid">
@@ -36,13 +34,13 @@
 							</div>
 							<div data-validate>
 								<div class="mdl-card__supporting-text">
-									<div style="margin-bottom: 12px" >Completa cada uno de los campos
+									<div style="margin-bottom: 12px">Completa cada uno de los campos
 										correctamente para crear registrar un usuario:</div>
 
 									<div class="input-group mb-3">
 
 										<div class="form-floating">
-											<input type="text" class="form-control" id="floatingInputGroup1"
+											<input type="text" class="form-control" id="primer_nombre"
 												placeholder="nombre">
 											<label for="floatingInputGroup1">Nombre</label>
 										</div>
@@ -51,7 +49,7 @@
 									<div class="input-group mb-3">
 
 										<div class="form-floating">
-											<input type="text" class="form-control" id="floatingInputGroup1"
+											<input type="text" class="form-control" id="primer_apellido"
 												placeholder="apellido">
 											<label for="floatingInputGroup1">Apellido</label>
 										</div>
@@ -60,7 +58,7 @@
 									<div class="input-group mb-3">
 
 										<div class="form-floating">
-											<input type="text" class="form-control" id="floatingInputGroup1"
+											<input type="text" class="form-control" id="telf"
 												placeholder="telefono">
 											<label for="floatingInputGroup1">Telefono</label>
 										</div>
@@ -78,37 +76,45 @@
 										<label for="floatingTextarea">Descripción</label>
 									</div>
 
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Nacionalidad</label>
-										<select class="form-select" aria-label="Default select example">
+										<select class="form-select" id="nacionalidad"
+											aria-label="Default select example">
 											<option selected>Nacionalidad</option>
 											<option value="1">V-</option>
 											<option value="2">E-</option>
 										</select>
 									</div>
 
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Estado</label>
-										<select class="form-select" aria-label="Default select example">
+										<select class="form-select" id="estado"
+											aria-label="Default select example">
 											<option value selected>Seleccione</option>
 										</select>
 									</div>
 
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									<label for="estado" class="form-label">Municipio</label>
-									<select class="form-select" aria-label="Default select example">
-										<option value selected>Seleccione</option>
-									</select>
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Municipio</label>
+										<select class="form-select" id="municipio"
+											aria-label="Default select example">
+											<option value selected>Seleccione</option>
+										</select>
 									</div>
-									
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									<label for="estado" class="form-label">Parroquia</label>
-									<select class="form-select" aria-label="Default select example">
-										<option value  selected>Seleccione</option>
 
-									</select>
-								    </div>
-									
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Parroquia</label>
+										<select class="form-select" id="parroquia"
+											aria-label="Default select example">
+											<option value selected>Seleccione</option>
+
+										</select>
+									</div>
+
 									<div class="d-grid gap-2">
 										<button class="btn btn-primary" type="button">Resgistrar</button>
 									</div>
@@ -137,7 +143,7 @@
 		</body>
 		<footer>
 			<div class="membrete-footer">
-				<img src="../src/img/banner-pie-de-pagina-web.png" alt="">
+				<img src="../src/img/banner-pie-de-pagina-web.png" alt>
 			</div>
 		</footer>
 	</html>
