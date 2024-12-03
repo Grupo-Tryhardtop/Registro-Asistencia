@@ -195,3 +195,35 @@ municipioSelect.addEventListener('change', async () => {
 
 fetchEstados();
 
+async function agregarPersona() {
+  const persona = {
+      cedula_id: 12345678,
+      primer_nombre: 'Juan',
+      segundo_nombre: 'Carlos',
+      primer_apellido: 'Pérez',
+      segundo_apellido: 'González',
+      email: 'juan.pdfdfdfdferez@example.com',
+      telf: 1234567890,
+      nacionalidad: 'Venezolana',
+      estado: 'Miranda',
+      municipio: 'Carrizal',
+      parroquia: 'La Matica'
+  };
+
+  const response = await fetch('http://10.10.10.17:3000/personas', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(persona)
+  });
+
+  if (response.ok) {
+      const data = await response.json();
+      console.log('Persona creada:', data);
+  } else {
+      console.log('Error al crear persona');
+  }
+}
+
+agregarPersona();
