@@ -42,7 +42,7 @@ document.addEventListener(
     document.addEventListener(
       'bouncerFormValid', 
       () => {
-        var url = 'https://codepen.io/lucasn1974/pen/yQrZma'
+        var url = ''
 
         fetch('registro', {
           method: 'POST',
@@ -51,8 +51,10 @@ document.addEventListener(
           },
           body: JSON.stringify({
             nombre: document.getElementById('nombre').value,
+            apellido: document.getElementById('apellido').value,
+            Telefono: document.getElementById('telefono').value,
             email: document.getElementById('email').value,
-            contraseña: sha3_512(sha3_512(document.getElementById('contraseña').value) + url)
+            
           })
         })
       }, 
@@ -61,4 +63,171 @@ document.addEventListener(
   }
 )
 
+//aqui inicia la logica de los select
+const estadoSelect = document.getElementById('estado');
 
+const municipioSelect = document.getElementById('municipio');
+
+const parroquiaSelect = document.getElementById('parroquia');
+
+
+//my snippet
+
+function populateSelect(selectElement, options, textKey, valueKey) {
+
+    selectElement.innerHTML = '<option value="">Seleccione una opción</option>'; // Limpiamos el select y agregamos la opción predeterminada
+
+    options.forEach(option => {
+
+        const opt = document.createElement('option');
+
+        opt.value = option[valueKey];
+
+        opt.textContent = option[textKey];
+
+        selectElement.appendChild(opt);
+
+    });
+
+}
+
+
+// Obtener estados
+
+async function fetchEstados() {
+
+    try {
+
+        const response = await fetch("https://unem.edu.ve/unem/index.php?method=GET&action=obtener_estados");
+
+        const estados = await response.json();
+
+        populateSelect(estadoSelect, estados, 'nombre', 'id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener estados:", error);
+
+    }
+
+}
+
+
+// Obtener municipios
+
+async function fetchMunicipios(estadoId) {
+
+    try {
+
+        const response = await fetch(`https://unem.edu.ve/unem/index.php?method=GET&action=obtener_municipios&estado_me_id=${estadoId}`);
+
+        const municipios = await response.json();
+
+        populateSelect(municipioSelect, municipios, 'nombre', 'id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener municipios:", error);
+
+    }
+
+}
+
+
+// Obtener parroquias
+
+async function fetchParroquias(municipioId) {
+
+    try {
+
+        const response = await fetch(`https://unem.edu.ve/unem/index.php?method=GET&action=obtener_parroquias&municipio_me_id=${municipioId}`);
+
+        const parroquias = await response.json();
+
+        populateSelect(parroquiaSelect, parroquias, 'nombre', 'parroquia_me_id'); // Usamos 'nombre' como texto y 'id' como valor
+
+    } catch (error) {
+
+        // console.error("Error al obtener parroquias:", error);
+
+    }
+
+}
+
+
+// Eventos para los cambios en los selectores
+
+estadoSelect.addEventListener('change', async () => {
+
+    const estadoId = estadoSelect.value;
+
+    municipioSelect.innerHTML = ''; // Limpiamos municipios y parroquias
+
+    parroquiaSelect.innerHTML = '';
+
+    if (estadoId) {
+
+        await fetchMunicipios(estadoId); // Cargamos municipios correspondientes
+
+    }
+
+});
+
+
+municipioSelect.addEventListener('change', async () => {
+
+    const municipioId = municipioSelect.value;
+
+    parroquiaSelect.innerHTML = ''; // Limpiamos parroquias
+
+    if (municipioId) {
+
+        await fetchParroquias(municipioId); // Cargamos parroquias correspondientes
+
+    }
+
+});
+
+
+// Cargamos los estados al iniciar
+
+fetchEstados();
+
+async function agregarPersona() {
+    const persona = {
+        cedula_id: document.getElementById("cedula").value,
+        primer_nombre: document.getElementById("primer_apellido").value,
+        segundo_nombre: document.getElementById("segundo_nombre").value,
+        primer_apellido: document.getElementById("primer_apellido").value,
+        segundo_apellido: document.getElementById("segundo_pellido").value,
+        email: document.getElementById("correo").value,
+        telf: document.getElementById("telf").value,
+        nacionalidad: document.getElementById("nacionalidad").value,
+        estado: document.getElementById("estado").value,
+        municipio: document.getElementById("municipio").value,
+        parroquia: document.getElementById("parroquia").value,
+    };
+    
+    
+
+
+    const response = await fetch('http://10.10.10.17:3000/personas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(persona)
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        console.log('Persona creada:', data);
+    } else {
+        console.log('Error al crear persona');
+    }
+}
+
+
+
+
+agregarPersona();

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Cédula</title>
+    <link rel="stylesheet" href="../vistas/buscador.css">
+</head>
+<body>
+
+    <header>
+        <img class="cintillo-header" src="../src/img/cintillo-2.png" alt>
+    </header>
+<div class="container">
+    <h2>Búsqueda de Cédula</h2>
+    <form id="searchForm">
+        <label for="tipoCedula">Tipo de Cédula:</label>
+        <select id="tipoCedula" required>
+            <option value="">Seleccione</option>
+            <option value="V">V- (Venezolano)</option>
+            <option value="E">E- (Extranjero)</option>
+        </select>
+
+        <label for="numeroCedula">Número de Cédula:</label>
+        <input type="text" id="numeroCedula" placeholder="Ingrese el número de cédula" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
+<script src="../vistas/buscador.js"></script>
+</body>
+<footer>
+    <div class="membrete-footer">
+        <img src="../src/img/banner-pie-de-pagina-web.png" alt>
+    </div>
+</footer>
+</html>

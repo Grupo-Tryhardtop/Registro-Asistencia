@@ -41,7 +41,7 @@
 
 										<div class="form-floating">
 											<input type="text" class="form-control" id="primer_nombre"
-												placeholder="nombre">
+												placeholder="nombre" required>
 											<label for="floatingInputGroup1">Nombre</label>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 
 										<div class="form-floating">
 											<input type="text" class="form-control" id="primer_apellido"
-												placeholder="apellido">
+												placeholder="apellido" required>
 											<label for="floatingInputGroup1">Apellido</label>
 										</div>
 									</div>
@@ -59,20 +59,20 @@
 
 										<div class="form-floating">
 											<input type="text" class="form-control" id="telf"
-												placeholder="telefono">
+												placeholder="telefono" required>
 											<label for="floatingInputGroup1">Telefono</label>
 										</div>
 									</div>
 
 									<div class="form-floating mb-3">
-										<input type="email" class="form-control" id="floatingInput"
-											placeholder="name@example.com">
+										<input type="email" class="form-control" id="correo"
+											placeholder="name@example.com" required>
 										<label for="floatingInput">Correo electrónico</label>
 									</div>
 
 									<div class="form-floating">
-										<textarea class="form-control" placeholder="Leave a comment here"
-											id="floatingTextarea"></textarea>
+										<textarea class="form-control" placeholder="Leave a comment here" required
+											id="descripcion"></textarea>
 										<label for="floatingTextarea">Descripción</label>
 									</div>
 
@@ -80,7 +80,7 @@
 										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Nacionalidad</label>
 										<select class="form-select" id="nacionalidad"
-											aria-label="Default select example">
+											aria-label="Default select example" required>
 											<option selected>Nacionalidad</option>
 											<option value="1">V-</option>
 											<option value="2">E-</option>
@@ -91,7 +91,7 @@
 										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Estado</label>
 										<select class="form-select" id="estado"
-											aria-label="Default select example">
+											aria-label="Default select example" required>
 											<option value selected>Seleccione</option>
 										</select>
 									</div>
@@ -100,7 +100,7 @@
 										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Municipio</label>
 										<select class="form-select" id="municipio"
-											aria-label="Default select example">
+											aria-label="Default select example" required>
 											<option value selected>Seleccione</option>
 										</select>
 									</div>
@@ -109,14 +109,14 @@
 										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label for="estado" class="form-label">Parroquia</label>
 										<select class="form-select" id="parroquia"
-											aria-label="Default select example">
+											aria-label="Default select example" required>
 											<option value selected>Seleccione</option>
 
 										</select>
 									</div>
 
 									<div class="d-grid gap-2">
-										<button class="btn btn-primary" type="button">Resgistrar</button>
+										<button class="btn btn-primary" type="button">Registrar</button>
 									</div>
 								</form>
 							</div>

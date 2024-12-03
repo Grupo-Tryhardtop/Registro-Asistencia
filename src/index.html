@@ -1,57 +1,149 @@
-<div class="mdl-layout mdl-js-layout">
-	<header class="mdl-layout__header">
-		<div class="mdl-layout__header-row">
-			<span class="mdl-layout-title">Cuentas de Usuario</span>
-		</div>
-	</header>
-	<main class="mdl-layout__content">
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-offset-desktop mdl-cell--2-offset-tablet">
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Formulario de Registro</title>
+		<link rel='stylesheet'
+			href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+		<link rel='stylesheet'
+			href='https://code.getmdl.io/1.1.3/material.indigo-pink.min.css'><link
+			rel="stylesheet" href="./style.css">
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous">
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+	</head>
+	<body>
 
-				<div class="mdl-card mdl-shadow--2dp">
-					<div class="mdl-card__title mdl-card--border">
-						<h2 class="mdl-card__title-text">Registración</h2>
+		<div class="mdl-layout mdl-js-layout">
+			<header>
+				<img class="cintillo-header" src="../src/img/cintillo-2.png" alt>
+			</header>
+			<main class="mdl-layout__content">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-offset-desktop mdl-cell--2-offset-tablet">
+
+						<div class="mdl-card mdl-shadow--2dp">
+							<div class="mdl-card__title mdl-card--border">
+								<h2 class="mdl-card__title-text">Regístrate</h2>
+							</div>
+							<div data-validate>
+								<div class="mdl-card__supporting-text">
+									<div style="margin-bottom: 12px">Completa cada uno de los campos
+										correctamente para crear registrar un usuario:</div>
+
+									<div class="input-group mb-3">
+
+										<div class="form-floating">
+											<input type="text" class="form-control" id="primer_nombre"
+												placeholder="nombre" required>
+											<label for="floatingInputGroup1">Nombre</label>
+										</div>
+									</div>
+
+									<div class="input-group mb-3">
+
+										<div class="form-floating">
+											<input type="text" class="form-control" id="primer_apellido"
+												placeholder="apellido" required>
+											<label for="floatingInputGroup1">Apellido</label>
+										</div>
+									</div>
+
+									<div class="input-group mb-3">
+
+										<div class="form-floating">
+											<input type="text" class="form-control" id="telf"
+												placeholder="telefono" required>
+											<label for="floatingInputGroup1">Telefono</label>
+										</div>
+									</div>
+
+									<div class="form-floating mb-3">
+										<input type="email" class="form-control" id="correo"
+											placeholder="name@example.com" required>
+										<label for="floatingInput">Correo electrónico</label>
+									</div>
+
+									<div class="form-floating">
+										<textarea class="form-control" placeholder="Leave a comment here" required
+											id="descripcion"></textarea>
+										<label for="floatingTextarea">Descripción</label>
+									</div>
+
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Nacionalidad</label>
+										<select class="form-select" id="nacionalidad"
+											aria-label="Default select example" required>
+											<option selected>Nacionalidad</option>
+											<option value="1">V-</option>
+											<option value="2">E-</option>
+										</select>
+									</div>
+
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Estado</label>
+										<select class="form-select" id="estado"
+											aria-label="Default select example" required>
+											<option value selected>Seleccione</option>
+										</select>
+									</div>
+
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Municipio</label>
+										<select class="form-select" id="municipio"
+											aria-label="Default select example" required>
+											<option value selected>Seleccione</option>
+										</select>
+									</div>
+
+									<div
+										class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="estado" class="form-label">Parroquia</label>
+										<select class="form-select" id="parroquia"
+											aria-label="Default select example" required>
+											<option value selected>Seleccione</option>
+
+										</select>
+									</div>
+
+									<div class="d-grid gap-2">
+										<button class="btn btn-primary" type="button">Registrar</button>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
-					<form data-validate>
-						<div class="mdl-card__supporting-text">
-							<div style="margin-bottom: 12px">Para crear tu cuenta necesitamos que completes la siguiente informacion:</div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<label class="mdl-textfield__label" for="nombre">Nombre</label>
-								<input class="mdl-textfield__input" type="text" id="nombre" name="nombre" required data-bouncer-target="#nombre-error">
-								</input>
-							</div>
-							<div id="nombre-error"></div>
-
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<label class="mdl-textfield__label" for="email">Email</label>
-								<input class="mdl-textfield__input" type="email" id="email" name="email" required data-bouncer-target="#email-error">
-								</input>
-							</div>
-							<div id="email-error"></div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<label class="mdl-textfield__label" for="contraseña">Contraseña</label>
-								<input class="mdl-textfield__input" type="password" id="contraseña" name="contraseña" required minlength=6 data-bouncer-target="#contraseña-error">
-								</input>
-							</div>
-							<div id="contraseña-error"></div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-
-								<label class="mdl-textfield__label" for="confirmar_contraseña">Confirmar Contraseña</label>
-								<input class="mdl-textfield__input" type="password" id="confirmar_contraseña" name="confirmar_contraseña" data-bouncer-target="#confirmar_contraseña-error" required minlength=6 data-bouncer-match="#contraseña" data-bouncer-mismatch-message="Las Contraseñas no coinciden.">
-								</input>
-							</div>
-							<div id="confirmar_contraseña-error"></div>
-						</div>
-
-						<div class="mdl-card__actions">
-							<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width:100%">
-                Registrarme
-              </button>
-						</div>
-					</form>
-				</div>
+				</main>
 			</div>
-		</div>
-	</main>
-</div>
+			<!-- partial -->
+			<script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+			<script
+				src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+				integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+				crossorigin="anonymous"></script>
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+				integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+				crossorigin="anonymous"></script>
+			<script
+				src='https://rawgit.com/emn178/js-sha3/master/build/sha3.min.js'></script>
+			<script
+				src='https://cdn.jsdelivr.net/gh/cferdinandi/bouncer@1/dist/bouncer.polyfills.min.js'></script><script
+				src="./script.js"></script>
+
+		</body>
+		<footer>
+			<div class="membrete-footer">
+				<img src="../src/img/banner-pie-de-pagina-web.png" alt>
+			</div>
+		</footer>
+	</html>
